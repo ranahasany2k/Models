@@ -5,37 +5,10 @@ import matplotlib.pyplot as plt
 import json
 import os
 
-# Check if TensorFlow is installed, if not, install it
-try:
-    import tensorflow as tf
-except ImportError:
-    st.warning("TensorFlow is not installed. Installing TensorFlow...")
-    os.system("pip install tensorflow==2.7.0")  # Modify the version if needed
-    import tensorflow as tf
-
-# Check if numpy is installed, if not, install it
-try:
-    import numpy as np
-except ImportError:
-    st.warning("NumPy is not installed. Installing NumPy...")
-    os.system("pip install numpy")  
-    import numpy as np
-
-# Check if PIL is installed, if not, install it
-try:
-    from PIL import Image
-except ImportError:
-    st.warning("PIL is not installed. Installing PIL...")
-    os.system("pip install pillow")  
-    from PIL import Image
-
-# Check if matplotlib is installed, if not, install it
-try:
-    import matplotlib.pyplot as plt
-except ImportError:
-    st.warning("Matplotlib is not installed. Installing Matplotlib...")
-    os.system("pip install matplotlib")  
-    import matplotlib.pyplot as plt
+import tensorflow as tf
+import numpy as np
+from PIL import Imag
+import matplotlib.pyplot as plt
 
 # Load the model
 model1 = tf.keras.models.load_model('model1.h5')
