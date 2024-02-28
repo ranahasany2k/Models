@@ -6,9 +6,6 @@ import json
 import os
 
 import tensorflow as tf
-import numpy as np
-from PIL import Imag
-import matplotlib.pyplot as plt
 
 # Load the model
 model1 = tf.keras.models.load_model('model1.h5')
