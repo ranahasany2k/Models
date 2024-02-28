@@ -1,17 +1,24 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
-from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
+import json
+import os
+
+# Check if TensorFlow is installed, if not, install it
+try:
+    import tensorflow as tf
+except ImportError:
+    st.warning("TensorFlow is not installed. Installing TensorFlow...")
+    os.system("pip install tensorflow==2.7.0")  # Modify the version if needed
+    import tensorflow as tf
 
 # Load the model
-model1 = load_model('model1.h5')
-model2 = load_model('model2.h5')
-model3 = load_model('model3.h5')
+model1 = tf.keras.models.load_model('model1.h5')
+model2 = tf.keras.models.load_model('model2.h5')
+model3 = tf.keras.models.load_model('model3.h5')
 
 # Load training history data
-import json
-
 with open('history_norm.json', 'r') as file:
     history_norm = json.load(file)
 
@@ -23,32 +30,17 @@ with open('history_norm3.json', 'r') as file:
 
 # Function to preprocess the image
 def preprocess_image(image):
-    # Resize the image to 28x28
     resized_image = image.resize((28, 28))
-    # Convert image to grayscale
     grayscale_image = resized_image.convert('L')
-    # Convert image to array
     img_array = np.array(grayscale_image)
-    # Normalize the pixel values
     img_array = img_array / 255.0
-    # Reshape the array to match model input shape
     img_array = img_array.reshape((1, 28, 28))
     return img_array
 
-# Function to make prediction
-def make_prediction1(image):
+# Functions to make predictions
+def make_prediction(model, image):
     preprocessed_image = preprocess_image(image)
-    prediction = model1.predict(preprocessed_image)
-    return np.argmax(prediction)
-
-def make_prediction2(image):
-    preprocessed_image = preprocess_image(image)
-    prediction = model2.predict(preprocessed_image)
-    return np.argmax(prediction)
-
-def make_prediction3(image):
-    preprocessed_image = preprocess_image(image)
-    prediction = model3.predict(preprocessed_image)
+    prediction = model.predict(preprocessed_image)
     return np.argmax(prediction)
 
 # Function to plot training history
@@ -83,12 +75,12 @@ def main():
         image = Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image', use_column_width=True)
 
-        # Make prediction on the uploaded image
-        prediction1 = make_prediction1(image)
-        prediction2 = make_prediction2(image)
-        prediction3 = make_prediction3(image)
+        # Make predictions using all models
+        prediction1 = make_prediction(model1, image)
+        prediction2 = make_prediction(model2, image)
+        prediction3 = make_prediction(model3, image)
 
-        # Display the prediction
+        # Display the predictions
         st.write(f"Prediction according to model 1: {prediction1}")
         st.write(f"Prediction according to model 2: {prediction2}")
         st.write(f"Prediction according to model 3: {prediction3}")
