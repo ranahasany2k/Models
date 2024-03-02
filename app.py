@@ -199,9 +199,9 @@ def main():
             image = Image.open(uploaded_file)
             st.image(image, caption='Uploaded Image', use_column_width=True)
             prediction1, prediction2, prediction3 = make_digit_prediction(image)
-            st.write(f"Prediction according to model 1: {prediction1}")
-            st.write(f"Prediction according to model 2: {prediction2}")
-            st.write(f"Prediction according to model 3: {prediction3}")
+            st.write(f"Prediction according to Single layer preceptron model : {prediction1}")
+            st.write(f"Prediction according to Multi layer preceptron model : {prediction2}")
+            st.write(f"Prediction according to Convolutional neural network model : {prediction3}")
 
         st.sidebar.title('Digit Recognition Model Training History')
         if st.sidebar.checkbox('Show Model 1 Graph'):
@@ -229,9 +229,9 @@ def main():
             image = Image.open(uploaded_file)
             st.image(image, caption='Uploaded Image', use_column_width=True)
             prediction1, prediction2, prediction3 = make_fashion_prediction(image)
-            st.write(f"Prediction according to model 1: {labels_dict[prediction1]}")
-            st.write(f"Prediction according to model 2: {labels_dict[prediction2]}")
-            st.write(f"Prediction according to model 3: {labels_dict[prediction3]}")
+            st.write(f"Prediction according to Single layer preceptron model : {labels_dict[prediction1]}")
+            st.write(f"Prediction according to Multi layer preceptron model : {labels_dict[prediction2]}")
+            st.write(f"Prediction according to Convolutional neural network model : {labels_dict[prediction3]}")
 
         st.sidebar.title('Fashion Recognition Model Training History')
         if st.sidebar.checkbox('Show Model 1 Graph'):
@@ -263,9 +263,9 @@ def main():
             image = Image.open(uploaded_file)
             st.image(image, caption='Uploaded Image', use_column_width=True)
             prediction1, prediction2, prediction3 = make_cifar_prediction(image)
-            st.write(f"Prediction according to model 1: {cifar_labels_dict[prediction1]}")
-            st.write(f"Prediction according to model 2: {cifar_labels_dict[prediction2]}")
-            st.write(f"Prediction according to model 3: {cifar_labels_dict[prediction3]}")
+            st.write(f"Prediction according to Single layer preceptron model : {cifar_labels_dict[prediction1]}")
+            st.write(f"Prediction according to Multi layer preceptron model : {cifar_labels_dict[prediction2]}")
+            st.write(f"Prediction according to Convolutional neural network model : {cifar_labels_dict[prediction3]}")
 
         st.sidebar.title('CIFAR-10 Recognition Model Training History')
         if st.sidebar.checkbox('Show Model 1 Graph'):
