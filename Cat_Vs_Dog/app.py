@@ -4,7 +4,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 
 # Load the model
-model = load_model('my_model.h5')
+model = load_model('my_model.keras')
 
 # Function to preprocess the image
 def preprocess_image(image):
