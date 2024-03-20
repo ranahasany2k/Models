@@ -6,19 +6,19 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import json
 # Load the digit recognition models
-model1_digit = load_model('Model_Comparisons/model1.h5')
-model2_digit = load_model('Model_Comparisons/model2.h5')
-model3_digit = load_model('Model_Comparisons/model3.h5')
+model1_digit = keras.models.load_model('Model_Comparisons/model1.h5')
+model2_digit = keras.models.load_model('Model_Comparisons/model2.h5')
+model3_digit = keras.models.load_model('Model_Comparisons/model3.h5')
 
 # Load the fashion recognition models
-model1_fashion = load_model('Model_Comparisons/model1_2.h5')
-model2_fashion = load_model('Model_Comparisons/model2_2.h5')
-model3_fashion = load_model('Model_Comparisons/model3_2.h5')
+model1_fashion = keras.models.load_model('Model_Comparisons/model1_2.h5')
+model2_fashion = keras.models.load_model('Model_Comparisons/model2_2.h5')
+model3_fashion = keras.models.load_model('Model_Comparisons/model3_2.h5')
 
 # Load the CIFAR-10 recognition models
-model1_cifar = load_model('Model_Comparisons/model1_3.h5')
-model2_cifar = load_model('Model_Comparisons/model2_3.h5')
-model3_cifar = load_model('Model_Comparisons/model3_3.h5')
+model1_cifar = keras.models.load_model('Model_Comparisons/model1_3.h5')
+model2_cifar = keras.models.load_model('Model_Comparisons/model2_3.h5')
+model3_cifar = keras.models.load_model('Model_Comparisons/model3_3.h5')
 
 # Load digit recognition training history data
 with open('Model_Comparisons/history_norm.json', 'r') as file:
