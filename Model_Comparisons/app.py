@@ -5,50 +5,49 @@ from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
 import seaborn as sns
 import json
-
 # Load the digit recognition models
-model1_digit = load_model('model1.h5')
-model2_digit = load_model('model2.h5')
-model3_digit = load_model('model3.h5')
+model1_digit = load_model('Model_Comparisons/model1.h5')
+model2_digit = load_model('Model_Comparisons/model2.h5')
+model3_digit = load_model('Model_Comparisons/model3.h5')
 
 # Load the fashion recognition models
-model1_fashion = load_model('model1_2.h5')
-model2_fashion = load_model('model2_2.h5')
-model3_fashion = load_model('model3_2.h5')
+model1_fashion = load_model('Model_Comparisons/model1_2.h5')
+model2_fashion = load_model('Model_Comparisons/model2_2.h5')
+model3_fashion = load_model('Model_Comparisons/model3_2.h5')
 
 # Load the CIFAR-10 recognition models
-model1_cifar = load_model('model1_3.h5')
-model2_cifar = load_model('model2_3.h5')
-model3_cifar = load_model('model3_3.h5')
+model1_cifar = load_model('Model_Comparisons/model1_3.h5')
+model2_cifar = load_model('Model_Comparisons/model2_3.h5')
+model3_cifar = load_model('Model_Comparisons/model3_3.h5')
 
 # Load digit recognition training history data
-with open('history_norm.json', 'r') as file:
+with open('Model_Comparisons/history_norm.json', 'r') as file:
     history_norm = json.load(file)
 
-with open('history_norm2.json', 'r') as file:
+with open('Model_Comparisons/history_norm2.json', 'r') as file:
     history_norm2 = json.load(file)
 
-with open('history_norm3.json', 'r') as file:
+with open('Model_Comparisons/history_norm3.json', 'r') as file:
     history_norm3 = json.load(file)
 
 # Load fashion recognition training history data
-with open('history_norm_2.json', 'r') as file:
+with open('Model_Comparisons/history_norm_2.json', 'r') as file:
     history_norm_2 = json.load(file)
 
-with open('history_norm2_2.json', 'r') as file:
+with open('Model_Comparisons/history_norm2_2.json', 'r') as file:
     history_norm2_2 = json.load(file)
 
-with open('history_norm3_2.json', 'r') as file:
+with open('Model_Comparisons/history_norm3_2.json', 'r') as file:
     history_norm3_2 = json.load(file)
 
 # Load CIFAR-10 recognition training history data
-with open('history_norm_3.json', 'r') as file:
+with open('Model_Comparisons/history_norm_3.json', 'r') as file:
     history_norm_3 = json.load(file)
 
-with open('history_norm2_3.json', 'r') as file:
+with open('Model_Comparisons/history_norm2_3.json', 'r') as file:
     history_norm2_3 = json.load(file)
 
-with open('history_norm3_3.json', 'r') as file:
+with open('Model_Comparisons/history_norm3_3.json', 'r') as file:
     history_norm3_3 = json.load(file)
 
 def plot_confusion_matrix(cm, model_name):
@@ -213,13 +212,13 @@ def main():
 
         st.sidebar.title('Digit Recognition Confusion Matrix')
         if st.sidebar.checkbox('Show Model 1 Confusion Matrix'):
-            cm1 = load_confusion_matrix('cm1.json')
+            cm1 = load_confusion_matrix('Model_Comparisons/cm1.json')
             plot_confusion_matrix(cm1, "Model 1")
         if st.sidebar.checkbox('Show Model 2 Confusion Matrix'):
-            cm2 = load_confusion_matrix('cm2.json')
+            cm2 = load_confusion_matrix('Model_Comparisons/cm2.json')
             plot_confusion_matrix(cm2, "Model 2")
         if st.sidebar.checkbox('Show Model 3 Confusion Matrix'):
-            cm3 = load_confusion_matrix('cm3.json')
+            cm3 = load_confusion_matrix('Model_Comparisons/cm3.json')
             plot_confusion_matrix(cm3, "Model 3")
 
     elif recognition_type == "Fashion Recognition":
@@ -242,17 +241,17 @@ def main():
             plot_graph(history_norm3_2, "Model 3")
         st.sidebar.title('Fastion Recognition Confusion Matrix')
         if st.sidebar.checkbox('Show Model 1 Confusion Matrix'):
-            cm1 = load_confusion_matrix('cm1_2.json')
+            cm1 = load_confusion_matrix('Model_Comparisons/cm1_2.json')
             st.markdown(f"'''{labels1}'''")
             plot_confusion_matrix(cm1, "Model 1")
 
         if st.sidebar.checkbox('Show Model 2 Confusion Matrix'):
-            cm2 = load_confusion_matrix('cm2_2.json')
+            cm2 = load_confusion_matrix('Model_Comparisons/cm2_2.json')
             st.markdown(f"'''{labels1}'''")
             plot_confusion_matrix(cm2, "Model 2")
         
         if st.sidebar.checkbox('Show Model 3 Confusion Matrix'):
-            cm3 = load_confusion_matrix('cm3_2.json')
+            cm3 = load_confusion_matrix('Model_Comparisons/cm3_2.json')
             st.markdown(f"'''{labels1}'''")
             plot_confusion_matrix(cm3, "Model 3")
 
@@ -276,15 +275,15 @@ def main():
             plot_graph(history_norm3_3, "Model 3")
         st.sidebar.title('Digit Recognition Confusion Matrix')
         if st.sidebar.checkbox('Show Model 1 Confusion Matrix'):
-            cm1 = load_confusion_matrix('cm1_3.json')
+            cm1 = load_confusion_matrix('Model_Comparisons/cm1_3.json')
             st.markdown(f"'''{labels2}'''")
             plot_confusion_matrix(cm1, "Model 1")
         if st.sidebar.checkbox('Show Model 2 Confusion Matrix'):
-            cm2 = load_confusion_matrix('cm2_3.json')
+            cm2 = load_confusion_matrix('Model_Comparisons/cm2_3.json')
             st.markdown(f"'''{labels2}'''")
             plot_confusion_matrix(cm2, "Model 2")
         if st.sidebar.checkbox('Show Model 3 Confusion Matrix'):
-            cm3 = load_confusion_matrix('cm3_3.json')
+            cm3 = load_confusion_matrix('Model_Comparisons/cm3_3.json')
             st.markdown(f"'''{labels2}'''")
             plot_confusion_matrix(cm3, "Model 3")
 
