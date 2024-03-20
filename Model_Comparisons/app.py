@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import json
 # Load the digit recognition models
-model1_digit = keras.models.load_model('Model_Comparisons/model1.h5')
+model1_digit = keras.models.load_model('Model_Comparisons/model1.keras')
 model2_digit = keras.models.load_model('Model_Comparisons/model2.h5')
 model3_digit = keras.models.load_model('Model_Comparisons/model3.h5')
 
